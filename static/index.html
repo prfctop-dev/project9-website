@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ali's Electronics Store</title>
+  <!-- All styling comes from one file (no inline styles, so the security rules stay strict) -->
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="/">Ali's Electronics</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#products">Products</a>
+        <a href="#help">Help</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Big welcome section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Everyday electronics, delivered.</h1>
+        <p>Mice, chargers, speakers and more, with friendly support when you need it.</p>
+        <a class="button" href="#products">Shop now</a>
+      </div>
+    </section>
+
+    <!-- Product list (static for now; later it could come from the database) -->
+    <section id="products" class="container section">
+      <h2>Our products</h2>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-icon" aria-hidden="true">🖱️</div>
+          <h3>Wireless Mouse</h3>
+          <p class="price">$25.99</p>
+        </article>
+        <article class="product-card">
+          <div class="product-icon" aria-hidden="true">🔌</div>
+          <h3>USB-C Charger</h3>
+          <p class="price">$19.50</p>
+        </article>
+        <article class="product-card">
+          <div class="product-icon" aria-hidden="true">🔊</div>
+          <h3>Bluetooth Speaker</h3>
+          <p class="price">$49.00</p>
+        </article>
+        <article class="product-card">
+          <div class="product-icon" aria-hidden="true">💻</div>
+          <h3>Laptop Stand</h3>
+          <p class="price">$32.75</p>
+        </article>
+        <article class="product-card">
+          <div class="product-icon" aria-hidden="true">📱</div>
+          <h3>Phone Case</h3>
+          <p class="price">$12.00</p>
+        </article>
+        <article class="product-card">
+          <div class="product-icon" aria-hidden="true">⌨️</div>
+          <h3>Mechanical Keyboard</h3>
+          <p class="price">$79.00</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Tells visitors the chat exists -->
+    <section id="help" class="container section help">
+      <h2>Need help with an order?</h2>
+      <p>Use the chat button in the bottom corner. Our assistant can check order status and
+         start refund requests. A team member reviews every refund.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Demo store for learning. Not a real shop.</div>
+  </footer>
+
+  <!-- CHAT WIDGET: the round button, and the chat window (hidden until opened) -->
+  <button id="chat-launcher" class="chat-launcher" type="button"
+          aria-label="Open chat" aria-expanded="false" aria-controls="chat-panel">
+    💬 Chat with us
+  </button>
+
+  <section id="chat-panel" class="chat-panel" aria-label="Customer support chat" hidden>
+    <header class="chat-header">
+      <strong>Support assistant</strong>
+      <div class="chat-actions">
+        <button id="chat-new" class="chat-btn" type="button">New chat</button>
+        <button id="chat-close" class="chat-btn" type="button" aria-label="Close chat">✕</button>
+      </div>
+    </header>
+
+    <!-- Messages appear here. aria-live lets screen readers read new replies. -->
+    <div id="chat-messages" class="chat-messages" aria-live="polite"></div>
+
+    <form id="chat-form" class="chat-form" autocomplete="off">
+      <label for="chat-input" class="visually-hidden">Your message</label>
+      <input id="chat-input" type="text" maxlength="1000" placeholder="Type your message..." required>
+      <button id="chat-send" type="submit">Send</button>
+    </form>
+    <p class="chat-note">AI assistant. Our team reviews refunds and complaints.</p>
+  </section>
+
+  <!-- The chat logic (loaded last so the page above already exists) -->
+  <script src="/static/chat.js"></script>
+</body>
+</html>
